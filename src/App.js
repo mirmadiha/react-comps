@@ -1,10 +1,13 @@
 import Button from './Button';
 import { GoBell , GoHorizontalRule   ,GoKebabHorizontal} from "react-icons/go";
 function App(){
+    const handleClick=()=>{
+        console.log("click!!");
+    }
     return(
         <div>
         <div>
-            <Button success rounded outline>click me! <GoBell/> </Button>
+            <Button secondary outline rounded onClick={handleClick}>click me! <GoBell className="mr-1"/> </Button>
         </div>
 
         <div>

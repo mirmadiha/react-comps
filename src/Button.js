@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 function Button({
-    children,primary,secondary,success,warning,danger,outline,rounded}){
-        const classes=classNames("flex items-center px-3 , py-1.5 border",
+    children,primary,secondary,success,warning,danger,outline,rounded,className,...rest}){
+        const classes=classNames(
+            "flex items-center px-3 py-1.5 gap-2 border",
             {"border-blue-500 bg-blue-500 text-white":primary},
             {"border-black bg-black text-white":secondary},
             {"border-green-500 bg-green-500 text-white":success},
@@ -13,9 +14,9 @@ function Button({
             {"text-black":outline && secondary},
             {"text-green-500":outline && success},
             {"text-yellow-500":outline && warning},
-            {"text-red-500":outline && danger},
+            {"text-red-500":outline && danger}
         )
-    return <button className={classes} >{children}</button>
+    return <button {...rest} className={classes}>{children}</button>
 };
 
 Button.propTypes={
