@@ -1,13 +1,20 @@
+import {useState} from "react";
+
 function Dropdown({options}){
 
     const renderedOptions=options.map((option)=>{
-        return option.label;
+        return <div key={option.value}>{option.label}</div>
     })
 
+    const handleClick=()=>{
+        setOpen(!isOpen);
+        console.log(isOpen);
+    }
 
+    const[isOpen,setOpen]=useState(false);
     return <div>
         <div>Select...</div>
-        <div>{renderedOptions}</div>
+        <div onClick={handleClick}>{renderedOptions}</div>
     </div>
 };
 
